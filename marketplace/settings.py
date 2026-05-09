@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'cart',
     'vendors', 
     'products',
     'core',
@@ -65,6 +66,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                 'cart.context_processors.cart',  
             ],
         },
     },
@@ -73,6 +75,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "marketplace.wsgi.application"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+CART_SESSION_ID = 'cart'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases

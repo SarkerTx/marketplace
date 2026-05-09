@@ -32,6 +32,8 @@ from core.views import home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path('vendors/', include('vendors.urls')),      # ← new line
+    path('products/', include('products.urls')),
+    path('vendors/', include('vendors.urls')),
+    path('cart/', include('cart.urls')),       # ← new line
     path('', home, name='home'),
 ]
