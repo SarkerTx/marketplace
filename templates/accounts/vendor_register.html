@@ -1,6 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <h2>Vendor Registration</h2>
-<form method="post">
+
+<!-- Show any form errors -->
+{% if form.errors %}
+<div class="alert alert-danger">{{ form.errors }}</div>
+{% endif %}
+
+<form method="post" action="{% url 'vendor_register' %}">
   {% csrf_token %} {{ form.as_p }}
   <button type="submit" class="btn btn-primary">Register</button>
 </form>

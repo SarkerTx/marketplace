@@ -18,23 +18,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from core.views import home   # will create next
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
-    path('', home, name='home'),
-]
-
+from django.conf import settings
+from django.conf.urls.static import static
+from django.conf import settings            # ← must be here
+from django.conf.urls.static import static  # ← must be here
 from django.contrib import admin
 from django.urls import path, include
 from core.views import home
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('products/', include('products.urls')),
     path('vendors/', include('vendors.urls')),
-    path('cart/', include('cart.urls')), 
-    path('orders/', include('orders.urls')),      # ← new line
+    path('cart/', include('cart.urls')),
+    path('orders/', include('orders.urls')),
     path('', home, name='home'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

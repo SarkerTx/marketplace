@@ -4,6 +4,7 @@ from django.contrib import messages
 from accounts.models import VendorProfile
 from products.models import Product
 from .forms import ProductForm
+from orders.models import OrderItem
 
 @login_required
 def vendor_dashboard(request):

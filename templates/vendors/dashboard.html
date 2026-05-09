@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% if messages %} {% for message in messages %}
+<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+{% endfor %} {% endif %} {% block content %}
 <h2>Vendor Dashboard - {{ vendor.store_name }}</h2>
 {% if not vendor.is_approved %}
 <div class="alert alert-warning">
@@ -49,4 +51,5 @@
     {% endfor %}
   </tbody>
 </table>
+
 {% endblock %}
