@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'vendors', 
+    'products',
     'core',
     'accounts',
     "django.contrib.admin",
@@ -69,7 +71,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "marketplace.wsgi.application"
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
