@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Confirm Order</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in cart %}
+    <tr>
+      <td>{{ item.product.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>${{ item.total_price }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2">Grand Total</td>
+      <td>${{ cart.get_total_price }}</td>
+    </tr>
+  </tfoot>
+</table>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-success">
+    Place Order (Cash on Delivery)
+  </button>
+</form>
+{% endblock %}

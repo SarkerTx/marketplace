@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Your Orders</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Product</th>
+      <th>Qty</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in order_items %}
+    <tr>
+      <td>{{ item.order.id }}</td>
+      <td>{{ item.product.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>${{ item.price }}</td>
+      <td>${{ item.total }}</td>
+      <td>{{ item.order.get_status_display }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -15,6 +15,7 @@
         <a class="navbar-brand" href="{% url 'home' %}">MultiVendor</a>
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav ms-auto">
+            <!-- inside <ul class="navbar-nav ms-auto"> -->
             <li class="nav-item">
               <a class="nav-link" href="{% url 'product_list' %}">Products</a>
             </li>
@@ -23,11 +24,32 @@
                 Cart {% if cart|length > 0 %}({{ cart|length }}){% endif %}
               </a>
             </li>
-            {% if user.is_authenticated %} {% if user.is_vendor %}
+            {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'vendor_dashboard' %}"
-                >Dashboard</a
+              <a class="nav-link" href="{% url 'order_list' %}">My Orders</a>
+            </li>
+            {% if user.is_vendor %}
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="vendorDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                >Vendor</a
               >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="{% url 'vendor_dashboard' %}"
+                    >Products</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'vendor_orders' %}"
+                    >Orders</a
+                  >
+                </li>
+              </ul>
             </li>
             {% endif %}
             <li class="nav-item">

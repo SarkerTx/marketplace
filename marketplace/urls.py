@@ -34,6 +34,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('products/', include('products.urls')),
     path('vendors/', include('vendors.urls')),
-    path('cart/', include('cart.urls')),       # ← new line
+    path('cart/', include('cart.urls')), 
+    path('orders/', include('orders.urls')),      # ← new line
     path('', home, name='home'),
 ]

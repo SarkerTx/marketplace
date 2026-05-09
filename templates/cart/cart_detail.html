@@ -35,9 +35,7 @@
   </tfoot>
 </table>
 <!-- Placeholder: checkout will be added in Iteration 4 -->
-<a href="#" class="btn btn-success disabled"
-  >Proceed to Checkout (coming soon)</a
->
+<a href="{% url 'checkout' %}" class="btn btn-success">Proceed to Checkout</a>
 {% else %}
 <p>Your cart is empty.</p>
 {% endif %} {% endblock %}

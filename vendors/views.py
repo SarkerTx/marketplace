@@ -55,3 +55,9 @@ def delete_product(request, pk):
     product.delete()
     messages.success(request, 'Product deleted.')
     return redirect('vendor_dashboard')
+
+@login_required
+def vendor_orders(request):
+    vendor = request.user.vendor_profile
+    order_items = OrderItem.objects.filter(vendor=vendor).select_related('order', 'product').order_by('-order__created')
+    return render(request, 'vendors/orders.html', {'order_items': order_items})
